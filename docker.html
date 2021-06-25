@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Docker Web Application</title>
+</head>
+<style>
+    body{
+        background-image: image("vertical-logo-monochronmatic.jpg");
+        background: rgba(5, 215, 223, 0.788);
+    }
+</style>
+
+<body>
+    <!--<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.docker.com%2Fcompany%2Fnewsroom%2Fmedia-resources&psig=AOvVaw2CxH6bKRqB-3ICp58OgcXs&ust=1624714695162000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNC9q4n-svECFQAAAAAdAAAAABAD" height="230" width="230" >-->
+    <div class="center" id="DockerCommadInputs">
+        
+        <h1>Docker Web Application</h1>
+        <br/>
+        Docker Command : <input type="text", name="command", id = "command" >
+        <br/>
+        <button onclick="func()" class="button button1" type="submit" value="Submit"> Run </button>
+
+     <pre><div id = "out1"> Output </div> </pre>
+    </div>
+</body>
+
+<script>
+    function func(){
+        var i = document.getElementById("command");
+        var n = new XMLHttpRequest();
+        n.open('GET','http://<ip>/cgi-api/docker.py?X=' +i , true);
+        n.send();
+        n.onload = function(){
+            var out = n.responseText;
+            document.getElementById('out1').innerHTML = out;
+        }
+    }
+</script>
+
+</html>
