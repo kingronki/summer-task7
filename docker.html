@@ -29,7 +29,7 @@
     function func(){
         var i = document.getElementById("command");
         var n = new XMLHttpRequest();
-        n.open('GET','http://<ip>/cgi-api/docker.py?X=' +i , true);
+        n.open('GET','http://<ip>/cgi-bin/docker.py?X=' +i , true);
         n.send();
         n.onload = function(){
             var out = n.responseText;
